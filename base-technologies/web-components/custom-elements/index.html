@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- ref bootstrap from cdn -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script type="module" src="index.js"></script>
+    <style>
+        .c {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm c">
+                <app-badge primary>
+                    this is primary badge
+                </app-badge>
+            </div>
+            <div class="col-sm c">
+                <app-badge warning>
+                    warning
+                </app-badge>
+            </div>
+            <div class="col-sm c">
+                <app-badge info>
+                    <app-random></app-random>
+                </app-badge>
+            </div>
+            <div class="col-sm c">
+                <app-badge info>
+                    info
+                </app-badge>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
