@@ -3,21 +3,26 @@ export class Badge extends HTMLElement {
     constructor() {
         super()
 
-        this.addEventListener("mouseover", () => {
-            if (this.disabled) return
-        })
-
         this.classList.add("badge");
     }
 
+    static modeList = ["primary", "secondary", "success", "danger", "warning", "info"]
     static get observedAttributes() {
-        return ["primary", "secondary", "success", "danger", "warning", "info"]
+        return ["appearance"]
     }
 
     attributeChangedCallback(name, oldVal, newVal) {
-        const className = `badge-${name}`
 
-        if (newVal || newVal == "") {
+        switch (name) {
+            case "appearance":
+                this.changeAppearance(oldVal, newVal)
+        }
+    }
+
+    changeAppearance(oldVal, newVal) {
+        this.classList.remove(`badge-${oldVal}`)
+        if (appearance) {
+            const className = `badge-${newVal}`
             if (!this.classList.contains(className)) {
                 this.classList.add(className)
             }
@@ -25,7 +30,6 @@ export class Badge extends HTMLElement {
         else {
             this.classList.remove(className)
         }
-
     }
 }
 
@@ -37,8 +41,32 @@ export class Random extends HTMLElement {
     }
 }
 
-export class DropDown extends HTMLElement {
+export class Iterate extends HTMLElement {
     constructor() {
         super()
+
+        this._shadowRoot = this.attachShadow({ mode: "open" })
+        this._each = this.getAttribute("for")
+    }
+
+    static get observedAttributes() {
+        return ["in"]
+    }
+
+    attributeChangedCallback(name, oldVal, newVal) {
+
+        switch (name) {
+            case "in":
+                this.updateList(newVal)
+        }
+    }
+
+    updateList(newList) {
+        // remove all children
+        while (this.firstChild) {
+            this.removeChild(myNode.firstChild);
+        }
+
+
     }
 }
