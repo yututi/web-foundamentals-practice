@@ -20,14 +20,15 @@
             flex-direction: column;
             align-items: center;
         }
-        body > * {
+
+        body>* {
             margin-top: 5px;
         }
     </style>
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             document.querySelector("#btn1").addEventListener("click", () => {
-                alert("clicked")
+                alert("this event registered on host element.")
             })
         })
     </script>
@@ -35,13 +36,18 @@
 
 <body>
     <app-button id="btn1">
-        this is button
+        this is button.
     </app-button>
     <app-button></app-button>
     <app-button>
         <div slot="icon">this is slot content.</div>
         this is button with slot.
     </app-button>
+    <div class="themed--dark">
+        <app-button>
+            dark theme.
+        </app-button>
+    </div>
 </body>
 
 </html>

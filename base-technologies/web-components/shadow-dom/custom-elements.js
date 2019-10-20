@@ -15,9 +15,13 @@ export class Button extends HTMLElement {
                     outline: none;
                     padding: 0.5em;
                     appearance: none;
-                    border-radius: 3px;
+                    border-radius: 0.5em;
                     display: flex;
                     align-items: center;
+                }
+                :host-context(.themed--dark) button {
+                    background-color: #000113;
+                    color: white;
                 }
                 .text {
                     flex:1;
@@ -30,6 +34,10 @@ export class Button extends HTMLElement {
                 </div>
             </button>
         `
+
+        shadowRoot.querySelector("button").addEventListener("click", () => {
+            alert("this event is registered on shadow root")
+        })
     }
 
     static get observedAttributes() {
@@ -45,6 +53,6 @@ export class Button extends HTMLElement {
     }
 
     changeColor(oldVal, newVal) {
-        
+
     }
 }
